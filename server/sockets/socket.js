@@ -56,9 +56,12 @@ io.on('connection', (client) => {
 
         let ticket = ticketControl.atenderT(data.escritorio);
 
-        client.broadcast.emit('ultimos', {
-            cuatroU: ticketControl.getUltimosT()
-        });
+        if (ticket !== 'No hay tickets.') {
+            client.broadcast.emit('ultimos', {
+                cuatroU: ticketControl.getUltimosT()
+            });
+        }
+
 
         callback(ticket);
 

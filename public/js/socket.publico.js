@@ -17,10 +17,8 @@ socket.on('estadoActual', function(res) {
 });
 
 socket.on('ultimos', function(res) {
-    if (res.cuatroU !== 'No hay tickets.') {
-        var audio = new Audio('audio/new-ticket.mp3');
-        audio.play();
-    }
+    var audio = new Audio('audio/new-ticket.mp3');
+    audio.play();
 
     actualizar(res.cuatroU);
 });
